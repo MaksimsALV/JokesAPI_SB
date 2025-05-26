@@ -1,4 +1,4 @@
-package com.jokesapi.JokesAPI_SB.application;
+package com.jokesapi.JokesAPI_SB.API;
 
 import java.text.SimpleDateFormat;
 import java.util.Date; //javas timestamps
