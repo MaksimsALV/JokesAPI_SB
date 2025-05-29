@@ -6,21 +6,20 @@ import com.jokesapi.JokesAPI_SB.API.JokesAPI;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+
 
 @Controller
 public class WebController {
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(@RequestParam(value = "getJoke", required = false) String getJoke, Model model) throws IOException, InterruptedException {
         Joke joke = null;
-        try {
-            joke = JokesAPI.requestAPI();
-        } catch (Exception e) {
-            //todo need to add error logging somehow here
-        }
+        joke = JokesAPI.requestAPI();
+
         model.addAttribute("joke", joke);
         return "index";
     }

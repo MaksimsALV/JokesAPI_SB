@@ -6,7 +6,7 @@
 </head>
 <body>
 <h3>hello world :D</h3>
-<h3>Observe: my first SpringBoot WEB App for Jokes!</h3>
+<h3>Observe: my first SpringBoot WEB App</h3>
 
 <div>
     <form action="/" method="get">
@@ -14,9 +14,9 @@
     </form>
     <fieldset style="width: 500px; height: 250px;">
         <div th:if="${joke != null}">
-            <p>Category: <b th:text="${joke.category}"></b></p>
-            <p>Joke: <b th:text="${joke.joke}"></b></p>
-            <p>Punchline: <b th:text="${joke.punchline}"></b></p>
+            <!--<p>Category: <b th:text="${joke.category}"></b></p> -->
+            <p><b th:text="${joke.joke}"></b></p>
+            <p><b th:text="${joke.punchline}"></b></p>
         </div>
         <div th:if="${joke == null}">
             <p>Oops! No joke available. Try reloading.</p>
