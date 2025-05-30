@@ -17,6 +17,7 @@
         <div th:if="${joke != null}">
             <!--<p>Category: <b th:text="${joke.category}"></b></p> -->
             <p><b th:text="${joke.joke}"></b></p>
+            <br>
             <p><b th:text="${joke.punchline}"></b></p>
         </div>
         <div th:if="${joke == null}">
