@@ -93,3 +93,54 @@ button:hover {
     display: inline-block;
     margin-bottom: 0.5em;
 }
+
+.header-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.clown-img {
+    width: 1em;
+    height: auto;
+    margin-left: 0.4em;
+    vertical-align: middle;
+    object-fit: contain;
+}
+
+.joke-buttons {
+    margin-top: 1.8em;
+    display: flex;
+    justify-content: center;
+    gap: 2em; /* space between buttons */
+}
+
+.joke-btn {
+    background: #f7f7fc;
+    border: none;
+    border-radius: 8px;   /* for slightly rounded corners, not circles */
+    width: 54px;          /* make buttons square */
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    transition: background 0.18s, transform 0.12s;
+    font-size: 1.4em;
+    outline: none;
+    padding: 0;
+}
+
+.joke-btn svg {
+    display: block;
+}
+
+.accept-btn:hover {
+    background: #e1f9e4;
+}
+
+.reject-btn:hover {
+    background: #ffe5e5;
+}
