@@ -5,26 +5,29 @@
     <title>JokesAPI</title>
 </head>
 <body>
-<h3>hello world :D</h3>
-<h3>Observe: my first SpringBoot WEB App</h3>
 
-<div>
-    <form action="/" method="get">
-        <input type="hidden" name="getJoke" value="returnedJoke">
-        <button type="submit">click me!</button>
-    </form>
-    <fieldset style="width: 500px; height: 250px;">
-        <div th:if="${joke != null}">
-            <!--<p>Category: <b th:text="${joke.category}"></b></p> -->
-            <p><b th:text="${joke.joke}"></b></p>
-            <br>
-            <p><b th:text="${joke.punchline}"></b></p>
-        </div>
-        <div th:if="${joke == null}">
-            <p>Oops! No joke available. Try reloading.</p>
-        </div>
-    </fieldset>
-</div>
+<header>
+    <h3>hello world :D</h3>
+    <h3>Observe: my first SpringBoot WEB App</h3>
+</header>
 
+<main>
+    <section id="getJokeSection"> <!--can use id for CSS later if I will want :) -->
+        <form action="/" method="get">
+            <input type="hidden" name="getJoke" value="returnedJoke">
+            <button type="submit">Click me!</button>
+        </form>
+    </section>
+
+    <section id="displayJokeSection">
+        <fieldset style="width: 500px; height: 250px;">
+            <div th:if="${joke != null}">
+                <p><b th:text="${joke.joke}"></b></p>
+                <br>
+                <p><b th:text="${joke.punchline}"></b></p>
+            </div>
+        </fieldset>
+    </section>
+</main>
 </body>
 </html>
