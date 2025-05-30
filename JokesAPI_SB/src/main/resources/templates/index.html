@@ -5,29 +5,31 @@
     <title>JokesAPI</title>
 </head>
 <body>
-
-<header>
-    <h3>hello world :D</h3>
-    <h3>Observe: my first SpringBoot WEB App</h3>
-</header>
-
-<main>
-    <section id="getJokeSection"> <!--can use id for CSS later if I will want :) -->
-        <form action="/" method="get">
-            <input type="hidden" name="getJoke" value="returnedJoke">
-            <button type="submit">Click me!</button>
-        </form>
-    </section>
-
-    <section id="displayJokeSection">
-        <fieldset style="width: 500px; height: 250px;">
-            <div th:if="${joke != null}">
-                <p><b th:text="${joke.joke}"></b></p>
-                <br>
-                <p><b th:text="${joke.punchline}"></b></p>
+    <header>
+        <h3>hello world :D</h3>
+        <h3>Observe: my first SpringBoot WEB App</h3>
+    </header>
+    <main>
+        <section id="getJokeSection"> <!--can use id for CSS later if I will want :) -->
+            <form action="/" method="get">
+                <input type="hidden" name="getJoke" value="returnedJoke">
+                <button type="submit">Click me!</button>
+            </form>
+        </section>
+        <section id="displayJokeSection">
+            <fieldset style="width: 500px; height: 250px;">
+                <div th:if="${joke != null}">
+                    <p><b th:text="${joke.joke}"></b></p>
+                    <br>
+                    <p><b th:text="${joke.punchline}"></b></p>
+                </div>
+            </fieldset>
+        </section>
+        <section>
+            <div style="display:none">
+                <pre th:utext="${jokeJSON}"></pre>
             </div>
-        </fieldset>
-    </section>
-</main>
+        </section>
+    </main>
 </body>
 </html>

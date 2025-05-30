@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 
 
+
 @Controller
 public class WebController {
 
@@ -20,6 +21,7 @@ public class WebController {
         if (getJoke != null) {
             Joke joke = JokesAPI.requestAPI();
             model.addAttribute("joke", joke);
+            model.addAttribute("jokeJSON", joke.toJSON().toString(4));
         }
         return "index";
     }

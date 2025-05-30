@@ -1,5 +1,7 @@
 package com.jokesapi.JokesAPI_SB.API;
 
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Date; //javas timestamps
 import java.util.UUID;
@@ -76,6 +78,21 @@ public class Joke {
     public String getDate_deleted() {
         return new SimpleDateFormat("dd-MM-yyyy HH:mm:ss.SSS").format(date_deleted);
     }
+
+    public JSONObject toJSON() {
+        JSONObject json = new JSONObject();
+        json.put("id", id);
+        json.put("joke", joke);
+        json.put("punchline", punchline);
+        json.put("category", category);
+        json.put("rating", rating);
+        json.put("date_created", date_created);
+        json.put("date_updated", date_updated);
+        json.put("date_deleted", date_deleted);
+        return json;
+    }
 }
+
+
 
 
