@@ -78,6 +78,7 @@ public class Joke {
         return new SimpleDateFormat("dd-MM-yyyy HH:mm:ss.SSS").format(date_deleted);
     }
 
+//  for back-end analysis within the .html console
     public JSONObject toJSON() {
         JSONObject json = new JSONObject();
         json.put("id", id);
