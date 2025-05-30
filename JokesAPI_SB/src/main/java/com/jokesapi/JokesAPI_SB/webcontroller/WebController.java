@@ -17,10 +17,10 @@ public class WebController {
 
     @GetMapping("/")
     public String index(@RequestParam(value = "getJoke", required = false) String getJoke, Model model) throws IOException, InterruptedException {
-        Joke joke = null;
-        joke = JokesAPI.requestAPI();
-
-        model.addAttribute("joke", joke);
+        if (getJoke != null) {
+            Joke joke = JokesAPI.requestAPI();
+            model.addAttribute("joke", joke);
+        }
         return "index";
     }
 }
