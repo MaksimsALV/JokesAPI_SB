@@ -3,7 +3,7 @@ package com.jokesapi.JokesAPI_SB.API;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
-import java.util.Date; //javas timestamps
+import java.util.Date;
 import java.util.UUID;
 
 public class Joke {
@@ -52,8 +52,7 @@ public class Joke {
     }
 
     //getters
-    //its weird, javaFX needs them to work, but there is no usages for some of them...
-    //internet told me that PropertyValueFactory in controller does that behind the scenes.
+    //todo not using it right now, but when ill add SQL, ill need them in order to locally save to db
     public UUID getId() {
         return id;
     }

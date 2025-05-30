@@ -27,14 +27,11 @@ public class JokesAPI {
         HttpResponse<String> response = client //this handles response
                 .send(request, HttpResponse.BodyHandlers.ofString());
 
-        //using JSONObject library for data organization (key & value) because API returns JSON object, so i need to get the correct data from it and then store in my Joke class
-        //I also have to decode the namings, for example setup = joke, so i need to store it as a joke and not as a setup which might be confusing
-        //I store it later as a String (everywhere), and add to the list also as a String to avoid complications
         JSONObject jokeResponse = new JSONObject(response.body());
         String joke = jokeResponse.getString("setup");
         String punchline = jokeResponse.get("punchline").toString();
         String category = jokeResponse.get("type").toString();
-        return new Joke(joke, punchline, category); // + "\n" + punchline;
+        return new Joke(joke, punchline, category);
     }
 }
 
