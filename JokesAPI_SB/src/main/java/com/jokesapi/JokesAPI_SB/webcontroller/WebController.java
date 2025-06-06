@@ -23,14 +23,6 @@ public class WebController { //thats the same thing that JavaFX had (controller)
         }
         return "index"; //this is mandatory, because of how spring boot and thymeleaf templates work. Pretty much this part, springboot tells which .html tempalte to return, since i have index.html, it instantly understands to return index.html
     }
-/*
-    @PostMapping("/saved-joke") //i want it to "proceed" with action when i click saved icon, so it saves the joke and opens the list
-    public String saveJoke(@ModelAttribute Joke joke) {
-        JokeStorage.savedJokes.add(joke);
-        return "redirect:/saved-jokes"; //then opens redirect page to saved-jokes
-    }
-
- */
 
     @PostMapping("/saved-joke") //i want it to "proceed" with action when i click saved icon, so it saves the joke and opens the list
     public String saveJoke(@RequestParam String joke,
