@@ -20,7 +20,6 @@ public class WebController { //thats the same thing that JavaFX had (controller)
         if (getJoke != null) { //first time I load the page, there is no joke yet, so the getJoke parameter is null, else doesnt work
             Joke joke = JokesAPI.requestAPI();
             model.addAttribute("joke", joke); //this model is used for visual part of .html
-            model.addAttribute("jokeJSON", joke.toJSON().toString(4)); //this model is used for backend analysis part of .html
         }
         return "index"; //this is mandatory, because of how spring boot and thymeleaf templates work. Pretty much this part, springboot tells which .html tempalte to return, since i have index.html, it instantly understands to return index.html
     }
