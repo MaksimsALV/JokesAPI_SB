@@ -25,17 +25,16 @@
                     <div class="joke-punchline" th:text="${joke.punchline}"></div>
                 </div>
                 <div class="joke-buttons">
-                    <button type="button" class="joke-btn accept-btn" title="Save to database">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1cb537" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 11 17 4 11" />
-                        </svg>
-                    </button>
-                    <button type="button" class="joke-btn reject-btn" title="Skip">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#de1b1b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="18" y1="6" x2="6" y2="18" />
-                            <line x1="6" y1="6" x2="18" y2="18" />
-                        </svg>
-                    </button>
+                    <form action="/saved-joke" method="post" style="display:inline;">
+                        <input type="hidden" name="joke" th:value="${joke.joke}" />
+                        <input type="hidden" name="punchline" th:value="${joke.punchline}" />
+                        <input type="hidden" name="category" th:value="${joke.category}" />
+                        <button type="submit" class="joke-btn accept-btn" title="Save to database">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1cb537" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 11 17 4 11" />
+                            </svg>
+                        </button>
+                    </form>
                 </div>
             </fieldset>
         </section>

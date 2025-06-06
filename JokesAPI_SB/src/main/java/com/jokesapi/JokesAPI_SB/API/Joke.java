@@ -25,6 +25,8 @@ public class Joke {
         setDate_updated(new Date());
     }
 
+    public Joke() {} //todo so @ModelAttribute works, but maybe i dont need it since i already have one public Joke above?
+
     //setters
     public void setId(UUID uuid) {
         this.id = uuid;
@@ -69,12 +71,15 @@ public class Joke {
         return rating;
     }
     public String getDate_created() { //the date it self is stored in Date format, but for UI i return it in human readable, formatted String
+        if (date_created == null) return "";
         return new SimpleDateFormat("dd-MM-yyyy HH:mm:ss.SSS").format(date_created);
     }
     public String getDate_updated() {
+        if (date_updated == null) return "";
         return new SimpleDateFormat("dd-MM-yyyy HH:mm:ss.SSS").format(date_updated);
     }
     public String getDate_deleted() {
+        if (date_deleted == null) return "";
         return new SimpleDateFormat("dd-MM-yyyy HH:mm:ss.SSS").format(date_deleted);
     }
 

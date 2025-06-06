@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Saved Jokes</title>
+</head>
+<body>
+<h2>Saved Jokes Table</h2>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Joke</th>
+    <th>Punchline</th>
+    <th>Category</th>
+    <th>Date Created</th>
+  </tr>
+  <tr th:each="j : ${jokes}">
+    <td th:text="${j.id}"></td>
+    <td th:text="${j.joke}"></td>
+    <td th:text="${j.punchline}"></td>
+    <td th:text="${j.category}"></td>
+    <td th:text="${j.date_created}"></td>
+  </tr>
+</table>
+<a href="/?getJoke">Back to Main</a> <!--return back to main page-->
+</body>
+</html>

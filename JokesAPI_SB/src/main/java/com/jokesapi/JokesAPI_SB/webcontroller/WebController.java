@@ -1,10 +1,13 @@
 package com.jokesapi.JokesAPI_SB.webcontroller;
 
+import com.jokesapi.JokesAPI_SB.Storage.JokeStorage;
 import org.springframework.ui.Model;
 import com.jokesapi.JokesAPI_SB.API.Joke;
 import com.jokesapi.JokesAPI_SB.API.JokesAPI;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
@@ -20,5 +23,17 @@ public class WebController { //thats the same thing that JavaFX had (controller)
             model.addAttribute("jokeJSON", joke.toJSON().toString(4)); //this model is used for backend analysis part of .html
         }
         return "index"; //this is mandatory, because of how spring boot and thymeleaf templates work. Pretty much this part, springboot tells which .html tempalte to return, since i have index.html, it instantly understands to return index.html
+    }
+
+    @PostMapping("/saved-joke") //i want it to "proceed" with action when i click saved icon, so it saves the joke and opens the list
+    public String saveJoke(@ModelAttribute Joke joke) {
+        JokeStorage.savedJokes.add(joke);
+        return "redirect:/saved-jokes"; //then opens redirect page to saved-jokes
+    }
+
+    @GetMapping("/saved-jokes") //retrieves jokes from the storage within saved-jokes.html page
+    public String showSavedJokes(Model model) {
+        model.addAttribute("jokes", JokeStorage.savedJokes);
+        return "saved-jokes";
     }
 }
