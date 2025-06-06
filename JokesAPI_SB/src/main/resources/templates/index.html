@@ -17,7 +17,7 @@
             </form>
         </section>
         <section class="display-joke-section fieldset">
-            <fieldset style="width: 500px; height: 250px;">
+            <fieldset style="width: 500px; height: 250px; position:relative">
                 <div th:if="${joke != null}">
                     <div class="joke-setup" th:text="${joke.joke}"></div>
                     <div class="divider"></div>
@@ -48,17 +48,18 @@
                         </button>
                     </form>
                 </div>
-                <!--todo add new button to go into the table view
-                <div class="view-jokes-table">
-                    <form action="/saved-jokes" method="post" style="display:inline;">
-                        <button type="view" class="view-btn" title="View Jokes Table">
-                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1cb537" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 11 17 4 11" />
+                <div class="table-float-btn" th:if="${joke != null}">
+                    <form action="/saved-jokes" method="get" style="display:inline;">
+                        <button type="submit" class="view-btn" title="View Jokes Table" style="background:transparent; border:none; box-shadow:none;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 stroke="#69a7ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="4" y1="7" x2="20" y2="7"/>
+                                <line x1="4" y1="12" x2="20" y2="12"/>
+                                <line x1="4" y1="17" x2="20" y2="17"/>
                             </svg>
                         </button>
                     </form>
                 </div>
-                -->
             </fieldset>
         </section>
         <section>
