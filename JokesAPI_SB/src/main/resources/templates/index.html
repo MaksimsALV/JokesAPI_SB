@@ -24,16 +24,18 @@
                     <div class="joke-punchline" th:text="${joke.punchline}"></div>
                 </div>
                 <div class="joke-buttons">
-                    <form action="/saved-joke" method="post" style="display:inline;">
-                        <input type="hidden" name="joke" th:value="${joke.joke}" />
-                        <input type="hidden" name="punchline" th:value="${joke.punchline}" />
-                        <input type="hidden" name="category" th:value="${joke.category}" />
-                        <button type="submit" class="joke-btn accept-btn" title="Save to database">
-                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1cb537" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 11 17 4 11" />
-                            </svg>
-                        </button>
-                    </form>
+                    <div th:if="${joke != null}" style="display: inline;">
+                        <form action="/saved-joke" method="post" style="display:inline;">
+                            <input type="hidden" name="joke" th:value="${joke.joke}" />
+                            <input type="hidden" name="punchline" th:value="${joke.punchline}" />
+                            <input type="hidden" name="category" th:value="${joke.category}" />
+                            <button type="submit" class="joke-btn accept-btn" title="Save to database">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1cb537" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 11 17 4 11" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
                     <form action="/" method="get">
                         <input type="hidden" name="getJoke" value="returnedJoke">
                         <button type="reload" class="joke-btn reload-btn">
@@ -46,6 +48,17 @@
                         </button>
                     </form>
                 </div>
+                <!--todo add new button to go into the table view
+                <div class="view-jokes-table">
+                    <form action="/saved-jokes" method="post" style="display:inline;">
+                        <button type="view" class="view-btn" title="View Jokes Table">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1cb537" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 11 17 4 11" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+                -->
             </fieldset>
         </section>
         <section>

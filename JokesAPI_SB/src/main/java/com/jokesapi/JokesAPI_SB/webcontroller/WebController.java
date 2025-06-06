@@ -27,10 +27,12 @@ public class WebController { //thats the same thing that JavaFX had (controller)
     @PostMapping("/saved-joke") //i want it to "proceed" with action when i click saved icon, so it saves the joke and opens the list
     public String saveJoke(@RequestParam String joke,
                            @RequestParam String punchline,
-                           @RequestParam String category) {
+                           @RequestParam String category,
+                           Model model) {
         Joke newJoke = new Joke(joke, punchline, category);
         JokeStorage.savedJokes.add(newJoke);
-        return "redirect:/saved-jokes"; //then opens redirect page to saved-jokes
+        model.addAttribute("joke", newJoke);
+        return "redirect:/?getJoke=returnedJoke"; //then opens redirect page to saved-jokes
     }
 
     @GetMapping("/saved-jokes") //retrieves jokes from the storage within saved-jokes.html page
