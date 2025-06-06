@@ -173,9 +173,9 @@ header {
     border-radius: 16px;
     box-shadow: 0 2px 24px rgba(55,125,255,0.10);
     padding: 2em 2em 1em 2em;
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
-    min-width: 700px;
+    min-width: 800px;
 }
 
 .jokes-table {

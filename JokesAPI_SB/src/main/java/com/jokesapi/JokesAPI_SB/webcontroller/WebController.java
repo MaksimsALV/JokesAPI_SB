@@ -5,12 +5,10 @@ import org.springframework.ui.Model;
 import com.jokesapi.JokesAPI_SB.API.Joke;
 import com.jokesapi.JokesAPI_SB.API.JokesAPI;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.UUID;
 
 @Controller
 public class WebController { //thats the same thing that JavaFX had (controller), but for springboots
@@ -33,6 +31,12 @@ public class WebController { //thats the same thing that JavaFX had (controller)
         JokeStorage.savedJokes.add(newJoke);
         model.addAttribute("joke", newJoke);
         return "redirect:/?getJoke=returnedJoke"; //then opens redirect page to saved-jokes
+    }
+
+    @PostMapping("/delete-joke/{id}")
+    public String deleteJoke(@PathVariable("id") UUID id) {
+        JokeStorage.savedJokes.removeIf(joke -> joke.getId().equals(id));
+        return "redirect:/saved-jokes";
     }
 
     @GetMapping("/saved-jokes") //retrieves jokes from the storage within saved-jokes.html page
